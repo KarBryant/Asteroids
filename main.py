@@ -1,8 +1,8 @@
 # this allows us to use code from
 # the open-source pygame library
 # throughout this file
-import pygame
-import constants
+import pygame, player as Player, constants
+
 
 def main():
     pygame.init()
@@ -14,9 +14,16 @@ def main():
 ## Set Variables For Game
 
     clock = pygame.time.Clock()
+
+    #Delta-Time
     dt = 0
 
     screen = pygame.display.set_mode((constants.SCREEN_WIDTH, constants.SCREEN_HEIGHT))
+
+    x = constants.SCREEN_WIDTH / 2
+    y = constants.SCREEN_HEIGHT / 2
+    player = Player.Player(x,y)
+
 
 ## Main Game Loop
     while pygame.get_init():
@@ -24,6 +31,7 @@ def main():
             if event.type == pygame.QUIT:
                 return
         screen.fill("black")
+        player.draw(screen)
         pygame.display.flip()
         clock.tick(60)
         dt = 1000/clock.tick(60)
