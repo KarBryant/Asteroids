@@ -3,6 +3,9 @@
 # throughout this file
 import pygame, constants
 from player import Player
+from asteroid import Asteroid
+from asteroidfield import AsteroidField
+
 
 
 def main():
@@ -35,25 +38,27 @@ def main():
     updatables = pygame.sprite.Group()
    
     drawables = pygame.sprite.Group()
+
+    asteroids = pygame.sprite.Group()
     
 
     ## Group Initilization
     
     Player.containers = (updatables,drawables)
+    Asteroid.containers = (asteroids, updatables, drawables)
+    AsteroidField.containers = (updatables,)
   
     ##Objects
 
     player = Player(x,y)
-
-    
-
-## Group Initilization
+    asteroid_field = AsteroidField()
 
    
 
 
 ## Main Game Loop
     while pygame.get_init():
+        dt = 1000 / clock.tick(60)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
@@ -66,9 +71,7 @@ def main():
 
         pygame.display.flip()
 
-        clock.tick(60)
-
-        dt = 1000/clock.tick(60)
+      
 
 if __name__ == "__main__":
     main()
