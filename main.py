@@ -63,12 +63,19 @@ def main():
             if event.type == pygame.QUIT:
                 return
         screen.fill("black")
+
+        for asteroid in asteroids:
+            if asteroid.has_collided(player):
+                print("Game Over!")
+                raise Exception(SystemExit)
+
         
         updatables.update(dt)
 
         for object in drawables:
             object.draw(screen)
-
+        
+        
         pygame.display.flip()
 
       
