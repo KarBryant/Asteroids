@@ -41,7 +41,7 @@ class Player(circleshape.CircleShape):
 
     def move(self, delta_time):
         forward = pygame.Vector2(0, 1).rotate(self.rotation)
-        self.position += forward * constants.PLAYER_SPEED * delta_time
+        self.position += forward * constants.PLAYER_SPEED * (delta_time / 10)
 
     def shoot(self, delta_time):
         self.shot_cooldown += delta_time / 3000
