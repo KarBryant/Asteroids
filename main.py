@@ -1,6 +1,9 @@
-# this allows us to use code from
-# the open-source pygame library
-# throughout this file
+"""
+This module initializes the game, sets up game objects and groups,
+and runs the main game loop. It handles events, updates game state,
+checks collisions, and renders the game screen each frame.
+"""
+
 import pygame
 import constants
 from player import Player
@@ -11,6 +14,13 @@ from ScoreDisplay import ScoreDisplay
 
 
 def main():
+    """
+    Entry point for the Asteroids game.
+
+    Initializes pygame, creates game objects and sprite groups,
+    then enters the main loop which handles events, updates objects,
+    detects collisions, renders graphics, and tracks the player's score.
+    """
 
     # Game Initilaization
     pygame.init()
