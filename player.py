@@ -84,14 +84,25 @@ class Player(circleshape.CircleShape):
 
     def move(self, delta_time):
         """
-        Move the player forward or backward depending on input.
+        Move the player forward or backward depending on input. If the player goes out of screen bounds, they will be
+        wrapped to the opposite screen edge.
 
         Args:
             delta_time (float): Time since the last update/frame.
         """
-
         forward = pygame.Vector2(0, 1).rotate(self.rotation)
         self.position += forward * constants.PLAYER_SPEED * (delta_time / 10)
+
+        if self.position[0] < 0:
+            self.position = pygame.math.Vector2(constants.SCREEN_WIDTH, self.position[1])
+        if self.position[0] > constants.SCREEN_WIDTH:
+            self.position = pygame.math.Vector2(0, self.position[1])
+        if self.position[1] < 0:
+            self.position = pygame.math.Vector2(self.position[0], constants.SCREEN_HEIGHT)
+        if self.position[1] > constants.SCREEN_HEIGHT:
+            self.position = pygame.math.Vector2(self.position[0], 0)
+        
+
 
     def shoot(self, delta_time):
         """
