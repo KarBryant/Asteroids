@@ -1,10 +1,10 @@
-from shot import Shot
-import circleshape
+from .shot import Shot
+from .circleshape import CircleShape
 import pygame
 import constants
 
 
-class Player(circleshape.CircleShape):
+class Player(CircleShape):
     """
     Represents the player-controlled spaceship in the game.
 

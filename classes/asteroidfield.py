@@ -7,7 +7,7 @@ objects at random edges of the screen with random movement vectors.
 
 import pygame
 import random
-from asteroid import Asteroid
+from .asteroid import Asteroid
 from constants import (ASTEROID_MAX_RADIUS,
                        SCREEN_HEIGHT,
                        SCREEN_WIDTH,
