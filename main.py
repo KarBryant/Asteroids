@@ -6,11 +6,12 @@ checks collisions, and renders the game screen each frame.
 
 import pygame
 import constants
-from player import Player
-from asteroid import Asteroid
-from asteroidfield import AsteroidField
-from shot import Shot
-from ScoreDisplay import ScoreDisplay
+from classes import Player
+from classes import Asteroid
+from classes import AsteroidField
+from classes import Shot
+from classes import ScoreDisplay
+
 
 
 def main():
